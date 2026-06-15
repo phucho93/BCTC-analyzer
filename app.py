@@ -408,7 +408,8 @@ with tab2:
     fig_dp.update_layout(height=250, margin=dict(l=0, r=0, t=30, b=0),
                         showlegend=False, plot_bgcolor="white", paper_bgcolor="white")
     st.plotly_chart(fig_dp, use_container_width=True)
-    st.markdown(f"**ROE tổng hợp:** {' → '.join([f'{y}: {ratios.get(y,{}).get(\"dupont_roe\",0):.1f}%' for y in years])}")
+    roe_parts = [f"{y}: {ratios.get(y,{}).get('dupont_roe',0):.1f}%" for y in years]
+    st.markdown(f"**ROE tổng hợp:** {' → '.join(roe_parts)}")
 
 # ════════════════════════════════════════════════════════
 # TAB 3 — CHẤT LƯỢNG & FLAGS
